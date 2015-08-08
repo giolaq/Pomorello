@@ -139,6 +139,10 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
         // Get a reference to the ListView, and attach this adapter to it.
         mListView = (ListView) rootView.findViewById(R.id.listview_forecast);
+
+        //Set empty view
+        mListView.setEmptyView(rootView.findViewById(R.id.empty_list));
+
         mListView.setAdapter(mForecastAdapter);
         // We'll call our MainActivity
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
