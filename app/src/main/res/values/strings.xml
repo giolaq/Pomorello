@@ -115,5 +115,7 @@
 
     <!-- Key name for storing location status in SharedPreferences -->
     <string name="pref_location_status_key" translatable="false">loc-status</string>
+    <string name="empty_forecast_list_server_down">Forecast Server is Down!</string>
+    <string name="empty_forecast_list_server_error">Forecast Server error!</string>
 
 </resources>
