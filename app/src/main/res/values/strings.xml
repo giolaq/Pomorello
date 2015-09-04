@@ -113,4 +113,7 @@
 
     <string name="empty_list_no_network">Check your Network!</string>
 
+    <!-- Key name for storing location status in SharedPreferences -->
+    <string name="pref_location_status_key" translatable="false">loc-status</string>
+
 </resources>
