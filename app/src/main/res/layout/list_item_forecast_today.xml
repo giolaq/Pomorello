@@ -29,6 +29,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
         android:orientation="vertical">
 
         <TextView
@@ -61,6 +62,7 @@
         android:layout_width="0dp"
         android:layout_weight="5"
         android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical"
         android:gravity="center_horizontal|bottom">
 
