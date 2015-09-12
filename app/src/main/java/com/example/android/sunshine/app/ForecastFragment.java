@@ -115,6 +115,20 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     }
 
     @Override
+    public void onResume() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sp.registerOnSharedPreferenceChangeListener(this);
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sp.unregisterOnSharedPreferenceChangeListener(this);
+        super.onPause();
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.forecastfragment, menu);
     }
@@ -151,7 +165,8 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         mListView = (ListView) rootView.findViewById(R.id.listview_forecast);
 
         //Set empty view
-        mListView.setEmptyView(rootView.findViewById(R.id.empty_list));
+        mListView.setEmptyView(rootView.findViewById(R.id.listview_forecast_empty));
+
 
         mListView.setAdapter(mForecastAdapter);
         // We'll call our MainActivity
@@ -285,12 +300,12 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
     private void updateEmptyView() {
         if (mForecastAdapter.getCount() == 0) {
-            TextView tv = (TextView) getView().findViewById(R.id.empty_list);
+            TextView tv = (TextView) getView().findViewById(R.id.listview_forecast_empty);
             if (null != tv) {
                 // if cursor is empty, why? do we have an invalid location
-                int message = R.string.empty_list;
+                int message = R.string.empty_forecast_list;
                 if (!Utility.isNetworkAvailable(getActivity())) {
-                    message = R.string.empty_list_no_network;
+                    message = R.string.empty_forecast_list_no_network;
                     @SunshineSyncAdapter.LocationStatus int location = Utility.getLocationStatus(getActivity());
                     switch (location) {
                         case SunshineSyncAdapter.LOCATION_STATUS_SERVER_DOWN:
@@ -306,24 +321,12 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
                             break;
 
                     }
-                }
+            }
                 tv.setText(message);
             }
         }
     }
 
-    @Override
-    public void onResume() {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        sp.registerOnSharedPreferenceChangeListener(this);
-        super.onResume();
 
-    }
 
-    @Override
-    public void onPause() {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        sp.unregisterOnSharedPreferenceChangeListener(this);
-        super.onPause();
-    }
 }

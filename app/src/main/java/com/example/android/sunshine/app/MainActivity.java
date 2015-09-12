@@ -15,6 +15,7 @@
  */
 package com.example.android.sunshine.app;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -42,16 +43,17 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
     private final String LOG_TAG = MainActivity.class.getSimpleName();
     private static final String DETAILFRAGMENT_TAG = "DFTAG";
 
+
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     public static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
 
 
     static final String PROJECT_NUMBER = "442128742110";
-    private GoogleCloudMessaging mGcm;
 
     private boolean mTwoPane;
     private String mLocation;
+    private GoogleCloudMessaging mGcm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,13 +130,19 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
             startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        // If Google Play Services is not available, some features, such as GCM-powered weather
+        // alerts, will not be available.
+        if (!checkPlayServices()) {
+            // Store regID as null
+        }
+
         String location = Utility.getPreferredLocation(this);
         // update the location in our second pane using the fragment manager
         if (location != null && !location.equals(mLocation)) {
@@ -277,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
                 } catch (IOException ex) {
                     msg = "Error :" + ex.getMessage();
                     Log.e(LOG_TAG, msg);
-                    // TODO(joannasmith): If there is an error, don't just keep trying to register.
+                    // TODO: If there is an error, don't just keep trying to register.
                     // Require the user to click a button again, or perform
                     // exponential back-off.
                 }
