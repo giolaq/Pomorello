@@ -14,9 +14,6 @@
      limitations under the License.
  -->
 <resources>
-
-    <style name="ForecastStyle">
-        <item name="android:choiceMode">singleChoice</item>
-    </style>
-
+    <!-- Extra Padding - This one actually smaller on tablets -->
+    <dimen name="detail_view_extra_padding">0dp</dimen>
 </resources>
