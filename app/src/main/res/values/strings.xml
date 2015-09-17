@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -170,11 +169,14 @@
     <string name="condition_602">Heavy Snow</string>
     <string name="condition_611">Sleet</string>
     <string name="condition_612">Shower Sleet</string>
-    <string name="condition_615">Rain and Snow</string> <!-- light rain and snow -->
+    <string name="condition_615">Rain and Snow</string>
+    <!-- light rain and snow -->
     <string name="condition_616">Rain and Snow</string>
-    <string name="condition_620">Shower Snow</string> <!-- light shower snow -->
+    <string name="condition_620">Shower Snow</string>
+    <!-- light shower snow -->
     <string name="condition_621">Shower Snow</string>
-    <string name="condition_622">Shower Snow</string> <!-- heavy shower snow -->
+    <string name="condition_622">Shower Snow</string>
+    <!-- heavy shower snow -->
     <string name="condition_701">Mist</string>
     <string name="condition_711">Smoke</string>
     <string name="condition_721">Haze</string>
@@ -200,7 +202,8 @@
     <string name="condition_951">Calm</string>
     <string name="condition_952">Light Breeze</string>
     <string name="condition_953">Gentle Breeze</string>
-    <string name="condition_954">Breeze</string> <!-- moderate breeze -->
+    <string name="condition_954">Breeze</string>
+    <!-- moderate breeze -->
     <string name="condition_955">Fresh Breeze</string>
     <string name="condition_956">Strong Breeze</string>
     <string name="condition_957">High Wind</string>
@@ -215,4 +218,6 @@
     <!-- For Shared Element Transitions -->
     <string name="detail_icon_transition_name" translatable="false">TN_DetailIcon</string>
 
+    <!-- Strings related to Widgets -->
+    <string name="title_widget_today">Sunshine Today</string>
 </resources>
